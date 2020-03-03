@@ -136,7 +136,8 @@ class StreamingSolrRDD(
     if (logger.underlying.isTraceEnabled()) {
       logger.trace(s"Found ${partitions.length} partitions: ${partitions.mkString(",")}")
     } else {
-      logger.info(s"Found ${partitions.length} partitions.")
+//      logger.info(s"Found ${partitions.length} partitions.")
+      logger.info(s"Found ${partitions.length} partitions: ${partitions.mkString(",")}")
     }
     partitions
   }

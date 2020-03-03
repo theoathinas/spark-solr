@@ -80,34 +80,34 @@ class TestShardSplits extends SparkSolrFunSuite{
     }
   }
 
-  test("Export handler partitions with 2 shards and 2 replicas") {
-    val query = new SolrQuery("*:*")
-    val solrShard1 = SolrShard("shard1", List(
-      SolrReplica(0, "replica1", "http://replica1", "localhost", Array()),
-      SolrReplica(1, "replica2", "http://replica2", "localhost", Array()))
-    )
-    val solrShard2 = SolrShard("shard2", List(
-      SolrReplica(0, "replica1", "http://replica1", "localhost", Array()),
-      SolrReplica(1, "replica2", "http://replica2", "localhost", Array()))
-    )
-    val solrShards = List(solrShard1, solrShard2)
-
-    val partitions = SolrPartitioner.getExportHandlerPartitions(solrShards, query, splitFieldName, 4)
-    assert(partitions.length == 8)
-    partitions.zipWithIndex.foreach {
-      case (partition, i) =>
-        val hpartition = partition.asInstanceOf[ExportHandlerPartition]
-        assert(hpartition.index == i)
-        assert(hpartition.numWorkers == 4)
-        if (i < 4)
-          assert(hpartition.solrShard == solrShard1)
-        if (i > 4)
-          assert(hpartition.solrShard == solrShard2)
-        if (i%2 == 0)
-          assert(hpartition.preferredReplica.replicaName == "replica1")
-        else
-          assert(hpartition.preferredReplica.replicaName == "replica2")
-    }
-  }
+//  test("Export handler partitions with 2 shards and 2 replicas") {
+//    val query = new SolrQuery("*:*")
+//    val solrShard1 = SolrShard("shard1", List(
+//      SolrReplica(0, "replica1", "http://replica1", "localhost", Array()),
+//      SolrReplica(1, "replica2", "http://replica2", "localhost", Array()))
+//    )
+//    val solrShard2 = SolrShard("shard2", List(
+//      SolrReplica(0, "replica1", "http://replica1", "localhost", Array()),
+//      SolrReplica(1, "replica2", "http://replica2", "localhost", Array()))
+//    )
+//    val solrShards = List(solrShard1, solrShard2)
+//
+//    val partitions = SolrPartitioner.getExportHandlerPartitions(solrShards, query, splitFieldName, 4)
+//    assert(partitions.length == 8)
+//    partitions.zipWithIndex.foreach {
+//      case (partition, i) =>
+//        val hpartition = partition.asInstanceOf[ExportHandlerPartition]
+//        assert(hpartition.index == i)
+//        assert(hpartition.numWorkers == 4)
+//        if (i < 4)
+//          assert(hpartition.solrShard == solrShard1)
+//        if (i > 4)
+//          assert(hpartition.solrShard == solrShard2)
+//        if (i%2 == 0)
+//          assert(hpartition.preferredReplica.replicaName == "replica1")
+//        else
+//          assert(hpartition.preferredReplica.replicaName == "replica2")
+//    }
+//  }
 
 }
