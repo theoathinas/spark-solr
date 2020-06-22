@@ -218,8 +218,9 @@ public class MLPipeline implements SparkApp.RDDProcessor {
     System.out.println(confusionMatrix);
 
     // compute the false positive rate per label
-    System.out.println();
-    System.out.println("Accuracy: "+metrics.accuracy());
+    // System.out.println();
+    // TODO: Spark3
+    // System.out.println("Accuracy: "+metrics.accuracy());
     System.out.println("label\tfpr\n");
 
     String[] labels = labelConverter.getLabels();
