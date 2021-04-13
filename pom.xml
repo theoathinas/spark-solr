@@ -38,9 +38,9 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <java.version>11</java.version>
     <spark.version>3.1.1</spark.version>
-    <solr.version>8.4.1</solr.version> <!-- see also luceneMatchVersion in test/resources *solrconfig.xml files -->
-    <hadoop.version>2.7.5</hadoop.version>
-    <fasterxml.version>2.11.0</fasterxml.version>
+    <solr.version>8.4.1</solr.version>
+    <hadoop.version>3.2.0</hadoop.version>
+    <fasterxml.version>2.12.1</fasterxml.version>
     <scala.version>2.12.10</scala.version>
     <scala.binary.version>2.12</scala.binary.version>
     <scoverage.plugin.version>1.4.1</scoverage.plugin.version>
@@ -588,7 +588,7 @@
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
-      <version>4.13</version>
+      <version>4.13.1</version>
       <scope>test</scope>
     </dependency>
     <dependency>
