@@ -3,7 +3,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.lucidworks.spark</groupId>
   <artifactId>spark-solr</artifactId>
-  <version>4.0.0-SNAPSHOT</version>
+  <version>4.1.1-openslate-SNAPSHOT</version>
   <packaging>jar</packaging>
   <name>spark-solr</name>
   <description>Tools for reading data from Spark into Solr</description>
@@ -30,14 +30,14 @@
   </scm>
   <distributionManagement>
     <snapshotRepository>
-      <id>ossrh</id>
-      <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+      <id>oss-snapshots</id>
+      <url>https://nexus.osslabs.net/repository/maven-snapshots/</url>
     </snapshotRepository>
   </distributionManagement>
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <java.version>11</java.version>
-    <spark.version>3.0.0</spark.version>
+    <spark.version>3.1.1</spark.version>
     <solr.version>8.4.1</solr.version>
     <hadoop.version>3.2.0</hadoop.version>
     <fasterxml.version>2.11.0</fasterxml.version>
@@ -188,13 +188,13 @@
               <goal>testCompile</goal>
             </goals>
           </execution>
-          <execution>
-            <id>attach-scaladocs</id>
-            <phase>verify</phase>
-            <goals>
-              <goal>doc-jar</goal>
-            </goals>
-          </execution>
+<!--          <execution>-->
+<!--            <id>attach-scaladocs</id>-->
+<!--            <phase>verify</phase>-->
+<!--            <goals>-->
+<!--              <goal>doc-jar</goal>-->
+<!--            </goals>-->
+<!--          </execution>-->
         </executions>
         <configuration>
           <scalaVersion>${scala.version}</scalaVersion>
@@ -628,7 +628,7 @@
     <dependency>
       <groupId>org.scalatest</groupId>
       <artifactId>scalatest_${scala.binary.version}</artifactId>
-      <version>3.0.8</version>
+      <version>3.2.0</version>
       <scope>test</scope>
     </dependency>
     <dependency>

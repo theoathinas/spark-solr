@@ -25,7 +25,7 @@ import org.junit.AfterClass;
 import org.noggit.CharArr;
 import org.noggit.JSONWriter;
 import org.restlet.ext.servlet.ServerServlet;
-import org.scalatest.FunSuite;
+import org.scalatest.funsuite.AnyFunSuite;
 
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
